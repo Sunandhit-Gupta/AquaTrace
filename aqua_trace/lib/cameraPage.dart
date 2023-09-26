@@ -1,4 +1,5 @@
 import 'package:aqua_trace/ProfilePage.dart';
+import 'package:aqua_trace/Tips.dart';
 import 'package:aqua_trace/calculatorPage.dart';
 import 'package:aqua_trace/drawer.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ List<Widget> widgetList = [
   Text("Calculator"),
   Text("Text"),
   Text("Camera"),
-  Text("Tips"),
+  Tips(),
   ProfilePage(),
 ];
 
