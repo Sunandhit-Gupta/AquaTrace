@@ -79,7 +79,7 @@ class _cameraPageState extends State<cameraPage> {
             Container(
               height: 596,
               width: 500,
-              color: Colors.grey,
+              color: Colors.transparent,
 //------------------------------ Giving Screens as input to change with NAVBAR----------------
               child: IndexedStack(
                 index: myIndex,
@@ -138,6 +138,9 @@ class _cameraPageState extends State<cameraPage> {
         // -----------------------making curved  NavBar--------------------------
 
         bottomNavigationBar: CurvedNavigationBar(
+            color: Colors.blue,
+            backgroundColor: Colors.transparent,
+            height: 60,
             index: 2,
             onTap: (index) {
               setState(() {
@@ -149,45 +152,50 @@ class _cameraPageState extends State<cameraPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
+                    color: Colors.black,
                     Icons.calculate,
-                  ),
-                  Text("calci")
+                    size: 30,
+                  )
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
+                    color: Colors.black,
                     Icons.text_fields_outlined,
-                  ),
-                  Text("Text")
+                    size: 30,
+                  )
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
+                    color: Colors.black,
                     Icons.camera_alt_rounded,
-                  ),
-                  Text("camera")
+                    size: 30,
+                  )
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
+                    color: Colors.black,
                     Icons.tips_and_updates,
-                  ),
-                  Text("Tips")
+                    size: 30,
+                  )
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
+                    color: Colors.black,
                     Icons.person,
-                  ),
-                  Text("Profile")
+                    size: 30,
+                  )
                 ],
               ),
             ]),
