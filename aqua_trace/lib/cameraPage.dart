@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:aqua_trace/textfield.dart';
 
 class cameraPage extends StatefulWidget {
   const cameraPage({super.key});
@@ -17,8 +17,8 @@ class cameraPage extends StatefulWidget {
 
 int myIndex = 0;
 List<Widget> widgetList = [
-  Text("Home"),
-  Text("Text"),
+  Text("Tops"),
+  TextWidget(),
   Text("Calculator"),
   Text("Camera"),
   ProfilePage(),
@@ -31,7 +31,6 @@ class _cameraPageState extends State<cameraPage> {
       child: Scaffold(
         drawer: drawer(),
         appBar: AppBar(
-
           // ---------------making leading Icon for Logout ( not used )-------------------
           // leading: IconButton(
           //     onPressed: () {
@@ -39,11 +38,9 @@ class _cameraPageState extends State<cameraPage> {
           //     },
           //     icon: const Icon(Icons.logout_outlined)),
 
-
-              title: const Text("Hello, " + "Sunandhit"),
-              centerTitle: true,
+          title: const Text("Hello, " + "Sunandhit"),
+          centerTitle: true,
           actions: [
-            
             // -------------------Making button of Avatar--------------
             FloatingActionButton(
               backgroundColor: Colors.transparent,
@@ -136,7 +133,6 @@ class _cameraPageState extends State<cameraPage> {
         //       ]),
         // ),
 
-
         // -----------------------making curved  NavBar--------------------------
 
         bottomNavigationBar: CurvedNavigationBar(
@@ -146,44 +142,51 @@ class _cameraPageState extends State<cameraPage> {
               });
             },
             items: const [
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.home,),
-                    Text("Home")
-                  ],
-                ),
-
-                Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.text_fields_outlined,),
-                    Text("Text")
-                  ],
-                ),
-
+                children: [
+                  Icon(
+                    Icons.home,
+                  ),
+                  Text("Home")
+                ],
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.calculate,),
-                    Text("calci")
-                  ],
-                ),
+                children: [
+                  Icon(
+                    Icons.text_fields_outlined,
+                  ),
+                  Text("Text")
+                ],
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.camera_alt_rounded,),
-                    Text("camera")
-                  ],
-                ),
+                children: [
+                  Icon(
+                    Icons.calculate,
+                  ),
+                  Text("calci")
+                ],
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.person,),
-                    Text("Profile")
-                  ],
-                ),
+                children: [
+                  Icon(
+                    Icons.camera_alt_rounded,
+                  ),
+                  Text("camera")
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.person,
+                  ),
+                  Text("Profile")
+                ],
+              ),
             ]),
       ),
     );
