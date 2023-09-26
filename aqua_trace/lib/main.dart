@@ -1,4 +1,5 @@
 import 'package:aqua_trace/cameraPage.dart';
+import 'package:aqua_trace/loginPage1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +22,7 @@ class Home extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.forward),
                 onPressed: () {
-                  Get.to(const cameraPage());
+                  Get.to(loginPage1());
                 },
               )
             ],
