@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:aqua_trace/textfield.dart';
 
 class cameraPage extends StatefulWidget {
   const cameraPage({super.key});
@@ -19,7 +19,7 @@ int myIndex = 2;
 
 List<Widget> widgetList = [
   Text("Calculator"),
-  Text("Text"),
+  TextWidget(),
   Text("Camera"),
   Text("Tips"),
   ProfilePage(),
@@ -33,7 +33,6 @@ class _cameraPageState extends State<cameraPage> {
       child: Scaffold(
         drawer: drawer(),
         appBar: AppBar(
-
           // ---------------making leading Icon for Logout ( not used )-------------------
           // leading: IconButton(
           //     onPressed: () {
@@ -41,11 +40,9 @@ class _cameraPageState extends State<cameraPage> {
           //     },
           //     icon: const Icon(Icons.logout_outlined)),
 
-
-              title: const Text("Hello, " + "Sunandhit"),
-              centerTitle: true,
+          title: const Text("Hello, " + "Sunandhit"),
+          centerTitle: true,
           actions: [
-            
             // -------------------Making button of Avatar--------------
             FloatingActionButton(
               backgroundColor: Colors.transparent,
@@ -138,7 +135,6 @@ class _cameraPageState extends State<cameraPage> {
         //       ]),
         // ),
 
-
         // -----------------------making curved  NavBar--------------------------
 
         bottomNavigationBar: CurvedNavigationBar(
@@ -149,9 +145,9 @@ class _cameraPageState extends State<cameraPage> {
               });
             },
             items: const [
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                
                   children: [
                     Icon(Icons.calculate,),
                     Text("calci")
@@ -185,14 +181,15 @@ class _cameraPageState extends State<cameraPage> {
                   ],
                 ),
 
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.person,),
-                    Text("Profile")
-                  ],
-                ),
+                children: [
+                  Icon(
+                    Icons.person,
+                  ),
+                  Text("Profile")
+                ],
+              ),
             ]),
       ),
     );
