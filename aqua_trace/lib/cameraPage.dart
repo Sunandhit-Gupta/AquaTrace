@@ -15,18 +15,20 @@ class cameraPage extends StatefulWidget {
   State<cameraPage> createState() => _cameraPageState();
 }
 
-int myIndex = 0;
+int myIndex = 2;
+
 List<Widget> widgetList = [
-  Text("Tops"),
-  TextWidget(),
   Text("Calculator"),
+  TextWidget(),
   Text("Camera"),
+  Text("Tips"),
   ProfilePage(),
 ];
 
 class _cameraPageState extends State<cameraPage> {
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: Scaffold(
         drawer: drawer(),
@@ -136,6 +138,7 @@ class _cameraPageState extends State<cameraPage> {
         // -----------------------making curved  NavBar--------------------------
 
         bottomNavigationBar: CurvedNavigationBar(
+          index: 2,
             onTap: (index) {
               setState(() {
                 myIndex = index;
@@ -144,40 +147,40 @@ class _cameraPageState extends State<cameraPage> {
             items: const [
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.home,
-                  ),
-                  Text("Home")
-                ],
-              ),
+                
+                  children: [
+                    Icon(Icons.calculate,),
+                    Text("calci")
+                  ],
+                ),
+
+              
+
+                Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.text_fields_outlined,),
+                    Text("Text")
+                  ],
+                ),
+
+              
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.text_fields_outlined,
-                  ),
-                  Text("Text")
-                ],
-              ),
-              Column(
+                  children: [
+                    Icon(Icons.camera_alt_rounded,),
+                    Text("camera")
+                  ],
+                ),
+
+                Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.calculate,
-                  ),
-                  Text("calci")
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.camera_alt_rounded,
-                  ),
-                  Text("camera")
-                ],
-              ),
+                  children: [
+                    Icon(Icons.tips_and_updates,),
+                    Text("Tips")
+                  ],
+                ),
+
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
