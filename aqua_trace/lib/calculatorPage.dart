@@ -19,9 +19,7 @@ class _calculatorPageState extends State<calculatorPage> {
               Get.back();
             },
             icon: const Icon(Icons.back_hand)),
-
       ),
-      
     );
   }
 }
