@@ -2,6 +2,7 @@ import 'package:aqua_trace/ProfilePage.dart';
 import 'package:aqua_trace/Tips.dart';
 import 'package:aqua_trace/calculatorPage.dart';
 import 'package:aqua_trace/drawer.dart';
+import 'package:aqua_trace/list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
@@ -19,7 +20,7 @@ class cameraPage extends StatefulWidget {
 int myIndex = 2;
 
 List<Widget> widgetList = [
-  Text("Calculator"),
+  list(),
   TextWidget(),
   Text("Camera"),
   Tips(),

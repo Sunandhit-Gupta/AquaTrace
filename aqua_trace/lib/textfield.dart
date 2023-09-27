@@ -94,31 +94,32 @@ class _TextIn extends State<TextWidget> {
             itemCount: items.length,
             itemBuilder: (context, index) {
               return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    shape: RoundedRectangleBorder(
-                      //<-- SEE HERE
-                      side: BorderSide(width: 2, color: Colors.blue),
-                      borderRadius: BorderRadius.circular(10),
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    //<-- SEE HERE
+                    side: BorderSide(width: 2, color: Colors.blue),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Text(
+                      list_num[index + 1],
+                      style: TextStyle(color: Colors.black),
                     ),
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.blue,
-                      child: Text(
-                        list_num[index + 1],
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    title: Text(
-                      '${items[index]}',
-                    ),
-                    trailing: IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: () {
-                          setState(() {
-                            items.remove(items[index]);
-                          });
-                        }),
-                  ));
+                  ),
+                  title: Text(
+                    '${items[index]}',
+                  ),
+                  trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {
+                        setState(() {
+                          items.remove(items[index]);
+                        });
+                      }),
+                ),
+              );
             },
           ),
         ),

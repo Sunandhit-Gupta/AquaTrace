@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class list extends StatefulWidget {
@@ -8,7 +10,7 @@ class list extends StatefulWidget {
 }
 
 class _listState extends State<list> {
-  final List<String> data = const [
+  List<String> data = [
     'one',
     'two',
     'one',
@@ -20,7 +22,7 @@ class _listState extends State<list> {
     'one',
     'two',
   ];
-
+  String text = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,17 +32,40 @@ class _listState extends State<list> {
             child: ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return const Card(
+                return Card(
                   color: Colors.amber,
                   elevation: 5,
                   child: ListTile(
-                    title: Text('Item'),
+                    title: Text(data[index]),
+                    trailing: SizedBox(
+                      width: 70,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                              child: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      data.removeAt(index);
+                                    });
+                                  },
+                                  icon: Icon(Icons.delete)))
+                        ],
+                      ),
+                    ),
                   ),
                 );
               },
             ),
           ),
-          const Padding(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+            child: Divider(
+              color: Colors.grey,
+              thickness: 3,
+            ),
+          ),
+          Padding(
             padding: EdgeInsets.fromLTRB(35.0, 15.0, 35.0, 0.0),
             child: Row(
               children: <Widget>[
@@ -59,7 +84,7 @@ class _listState extends State<list> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
