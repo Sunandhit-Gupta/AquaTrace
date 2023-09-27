@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+   const ProfilePage({super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -37,7 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-
+          
             SizedBox(height: 5,width: 3,),
             ListTile(
               trailing: IconButton(onPressed: (){}, icon: Icon(Icons.email),highlightColor: Colors.white38,),
@@ -49,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-
+          
             SizedBox(height: 40,width: 20,),
             ElevatedButton.icon(onPressed: (){}, icon: Icon(Icons.save,color: Colors.white,), label: Text("Save"),style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 101, 139, 158)),),
           ],

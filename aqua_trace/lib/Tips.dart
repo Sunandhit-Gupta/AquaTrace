@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'tipsDatabase.dart';
+
 class Tips extends StatefulWidget {
   const Tips({super.key});
 
   @override
   State<Tips> createState() => _TipsState();
 }
-
 
 class _TipsState extends State<Tips> {
   @override
@@ -20,10 +20,10 @@ class _TipsState extends State<Tips> {
           color: Colors.amber,
           child: ListTile(
             leading: Icon(Icons.tips_and_updates_outlined),
-            title: Text("Tips",style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25
-            ),),
+            title: Text(
+              "Tips",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
           ),
         ),
         Expanded(
