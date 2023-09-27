@@ -11,6 +11,7 @@ class _TextIn extends State<TextWidget> {
   // List to store items
   List<String> items = [];
   List<String> listItems = ['apple', 'bananana', 'book'];
+  final List<String> list_num = List<String>.generate(10, (i) => '$i');
   var temp = '';
   TextEditingController textController = TextEditingController();
 
@@ -92,9 +93,32 @@ class _TextIn extends State<TextWidget> {
           child: ListView.builder(
             itemCount: items.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(items[index]),
-              );
+              return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListTile(
+                    shape: RoundedRectangleBorder(
+                      //<-- SEE HERE
+                      side: BorderSide(width: 2, color: Colors.blue),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.blue,
+                      child: Text(
+                        list_num[index + 1],
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    title: Text(
+                      '${items[index]}',
+                    ),
+                    trailing: IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () {
+                          setState(() {
+                            items.remove(items[index]);
+                          });
+                        }),
+                  ));
             },
           ),
         ),
