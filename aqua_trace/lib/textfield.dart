@@ -24,7 +24,7 @@ class _TextIn extends State<TextWidget> {
           child: Row(
             children: [
               SizedBox(
-                width: 300,
+                width: 260,
                 height: 50,
                 child: Center(
                   child: Autocomplete<String>(
@@ -57,7 +57,7 @@ class _TextIn extends State<TextWidget> {
 
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: SizedBox(
                     height: 50,
                     width: 70,
