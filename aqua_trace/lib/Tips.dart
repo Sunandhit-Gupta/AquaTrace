@@ -16,39 +16,44 @@ class _TipsState extends State<Tips> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Card(
-          elevation: 10,
-          color: Colors.amber,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListTile(
-              leading: Icon(Icons.tips_and_updates_outlined),
-              title: Text(
-                "Tip of the day.",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        body: Container(
+          child: Column(
+            
+              children: [
+          Card(
+            elevation: 10,
+            color: Colors.amber,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListTile(
+                leading: const Icon(Icons.tips_and_updates_outlined),
+                title: const Text(
+                  "Tip of the day.",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                subtitle: Text(tips_widgets[random]),
               ),
-              subtitle: Text(tips_widgets[random]),
             ),
           ),
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: tips_widgets.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                elevation: 5,
-                color: Color.fromARGB(255, 221, 205, 157),
-                child: ListTile(
-                  leading: Icon(Icons.tips_and_updates_outlined),
-                  title: Text(tips_widgets[index]),
-                ),
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: tips_widgets.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  elevation: 5,
+                  color: const Color.fromARGB(255, 221, 205, 157),
+                  child: ListTile(
+                    leading: const Icon(Icons.tips_and_updates_outlined),
+                    title: Text(tips_widgets[index]),
+                  ),
+                );
+              },
+            ),
           ),
-        ),
-      ],
-    ));
+
+          const SizedBox(height: 20,width: 20,),
+              ],
+            ),
+        ));
   }
 }

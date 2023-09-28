@@ -22,7 +22,7 @@ int myIndex = 2;
 List<Widget> widgetList = [
   list(),
   TextWidget(),
-  Text("Camera"),
+  Text('Camera'),
   Tips(),
   ProfilePage(),
 ];
@@ -33,7 +33,7 @@ class _cameraPageState extends State<cameraPage> {
     return SafeArea(
       child: Scaffold(
         drawer: drawer(),
-        appBar: AppBar(
+        appBar: myIndex!=3? AppBar(
           // ---------------making leading Icon for Logout ( not used )-------------------
           // leading: IconButton(
           //     onPressed: () {
@@ -70,21 +70,22 @@ class _cameraPageState extends State<cameraPage> {
               ),
             ),
           ],
-        ),
+        ):null,
         body: Column(
           children: [
             const SizedBox(
               height: 2,
               width: 2,
             ),
-            Container(
-              height: 596,
-              width: 500,
-              color: Colors.transparent,
-//------------------------------ Giving Screens as input to change with NAVBAR----------------
-              child: IndexedStack(
-                index: myIndex,
-                children: widgetList,
+            Expanded(
+              child: Container(
+                
+                color: Colors.transparent,
+            //------------------------------ Giving Screens as input to change with NAVBAR----------------
+                child: IndexedStack(
+                  index: myIndex,
+                  children: widgetList,
+                ),
               ),
             ),
           ],
@@ -141,7 +142,7 @@ class _cameraPageState extends State<cameraPage> {
         bottomNavigationBar: CurvedNavigationBar(
             color: Colors.blue,
             backgroundColor: Colors.transparent,
-            height: 60,
+            height: 70,
             index: 2,
             onTap: (index) {
               setState(() {

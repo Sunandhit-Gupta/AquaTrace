@@ -19,11 +19,7 @@ class _TextIn extends State<TextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (changed != 2) {
-      setState(() {
-        changed = 2;
-      });
-    }
+
     return Consumer<listProvider>(
       builder: (context, listProviderModel, child) => Column(
         children: <Widget>[
@@ -31,31 +27,33 @@ class _TextIn extends State<TextWidget> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                SizedBox(
-                  width: 260,
-                  height: 50,
-                  child: Center(
-                    child: Autocomplete<String>(
-                      optionsBuilder: (TextEditingValue textinput) {
-                        temp = textinput.text;
-                        if (textinput.text == '') {
-                          return const Iterable<String>.empty();
-                        }
-                        return listItems.where((String item) {
-                          return item.contains(textinput.text.toLowerCase());
-                        });
-                      },
-                      fieldViewBuilder:
-                          (context, controller, focusNode, onEditingComplete) {
-                        return TextField(
-                          controller: controller,
-                          focusNode: focusNode,
-                          onEditingComplete: onEditingComplete,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10))),
-                        );
-                      },
+                Expanded(
+                  child: SizedBox(
+                    width: 260,
+                    height: 50,
+                    child: Center(
+                      child: Autocomplete<String>(
+                        optionsBuilder: (TextEditingValue textinput) {
+                          temp = textinput.text;
+                          if (textinput.text == '') {
+                            return const Iterable<String>.empty();
+                          }
+                          return listItems.where((String item) {
+                            return item.contains(textinput.text.toLowerCase());
+                          });
+                        },
+                        fieldViewBuilder:
+                            (context, controller, focusNode, onEditingComplete) {
+                          return TextField(
+                            controller: controller,
+                            focusNode: focusNode,
+                            onEditingComplete: onEditingComplete,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
