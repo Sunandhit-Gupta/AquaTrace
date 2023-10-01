@@ -114,6 +114,9 @@ class login extends StatelessWidget {
             ),
           ),
 
+          SizedBox(
+            height: 25,
+          ),
           // google+ facebook auth
 
           Row(
@@ -123,22 +126,30 @@ class login extends StatelessWidget {
               Square_tile(imagePath: 'assets/google1.png'),
 
               SizedBox(
-                height: 100,
+                height: 50,
+                width: 20,
               ),
 
               //fb
               Square_tile(imagePath: 'assets/google1.png'),
             ],
           ),
-
+          SizedBox(
+            height: 20,
+          ),
           // register
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Not a member'),
               SizedBox(
                 width: 4,
               ),
-              Text('Register now')
+              Text(
+                'Register now',
+                style:
+                    TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+              )
             ],
           )
         ],

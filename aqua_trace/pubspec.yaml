@@ -41,6 +41,10 @@ dependencies:
   google_fonts: 
   provider:
   
+  # editing_code
+  firebase_core: ^2.16.0
+  firebase_auth: ^4.10.0
+ 
 
 dev_dependencies:
   flutter_test:
