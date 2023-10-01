@@ -2,22 +2,26 @@ import 'package:flutter/material.dart';
 
 class Square_tile extends StatelessWidget {
   final String imagePath;
-  Square_tile({super.key, required this.imagePath});
+  final Function()? onTap;
+  Square_tile({super.key, required this.imagePath, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        border: Border.all(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+          ),
+          borderRadius: BorderRadius.circular(16),
           color: Colors.white,
         ),
-        borderRadius: BorderRadius.circular(16),
-        color: Colors.white,
-      ),
-      child: Image.asset(
-        imagePath,
-        height: 40,
+        child: Image.asset(
+          imagePath,
+          height: 40,
+        ),
       ),
     );
   }

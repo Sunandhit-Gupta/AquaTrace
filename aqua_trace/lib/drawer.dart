@@ -1,25 +1,33 @@
-import 'package:aqua_trace/loginPage1.dart';
-import 'package:aqua_trace/main.dart';
+// ignore_for_file: prefer_const_constructors
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class drawer extends StatefulWidget {
   const drawer({super.key});
+
+  // sign out
 
   @override
   State<drawer> createState() => _drawerState();
 }
 
 class _drawerState extends State<drawer> {
+  final user = FirebaseAuth.instance.currentUser!;
+
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const UserAccountsDrawerHeader(
+          UserAccountsDrawerHeader(
             accountName: Text("Sunandhit"),
-            accountEmail: Text("Honeysingh@gmail.com"),
+            accountEmail: Text(user.email!),
             currentAccountPicture: CircleAvatar(
               backgroundImage: AssetImage('assets/sunandhitCharacter.png'),
               backgroundColor: Colors.transparent,
@@ -52,11 +60,9 @@ class _drawerState extends State<drawer> {
             // onTap: (){},
           ),
           ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text("Logout"),
-            onTap: () {
-              Get.to(loginPage1());
-            },
+            leading: Icon(Icons.logout),
+            title: Text("Logout"),
+            onTap: signUserOut,
           ),
         ],
       ),
