@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:aqua_trace/cameraPage.dart';
+import 'package:aqua_trace/screens/cameraPage.dart';
 import 'package:aqua_trace/login_or%20_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart ';

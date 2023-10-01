@@ -1,5 +1,5 @@
 import 'package:aqua_trace/provider_list.dart';
-import 'package:aqua_trace/auth_page.dart';
+import 'package:aqua_trace/screens/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';

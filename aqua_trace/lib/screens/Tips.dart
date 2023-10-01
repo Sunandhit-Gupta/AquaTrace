@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'tipsDatabase.dart';
+import '../tipsDatabase.dart';
 
 class Tips extends StatefulWidget {
   const Tips({super.key});

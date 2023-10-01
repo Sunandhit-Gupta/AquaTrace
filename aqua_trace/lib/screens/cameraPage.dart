@@ -1,10 +1,10 @@
-import 'package:aqua_trace/ProfilePage.dart';
-import 'package:aqua_trace/Tips.dart';
-import 'package:aqua_trace/drawer.dart';
-import 'package:aqua_trace/list.dart';
+import 'package:aqua_trace/screens/ProfilePage.dart';
+import 'package:aqua_trace/screens/Tips.dart';
+import 'package:aqua_trace/screens/drawer.dart';
+import 'package:aqua_trace/screens/list.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:aqua_trace/textfield.dart';
+import 'package:aqua_trace/screens/textfield.dart';
 
 class cameraPage extends StatefulWidget {
   cameraPage({super.key});
@@ -31,12 +31,7 @@ class _cameraPageState extends State<cameraPage> {
         appBar: myIndex != 3
             ? AppBar(
                 // ---------------making leading Icon for Logout ( not used )-------------------
-                // leading: IconButton(
-                //     onPressed: () {
-                //       Get.back();
-                //     },
-                //     icon: const Icon(Icons.logout_outlined)),
-
+                
                 title: Text("Hello, "),
                 centerTitle: true,
                 actions: [

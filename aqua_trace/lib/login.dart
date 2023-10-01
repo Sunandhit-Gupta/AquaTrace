@@ -56,6 +56,12 @@ class _loginState extends State<login> {
     }
   }
 
+  Future<int> resetPassword() async {
+    await FirebaseAuth.instance
+        .sendPasswordResetEmail(email: emailController.text);
+    return 200;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,10 +113,16 @@ class _loginState extends State<login> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'Forgot Password?',
-                    style: TextStyle(color: Colors.white70),
-                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      int status = await resetPassword();
+                      print(status);
+                    },
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(color: Colors.white70),
+                    ),
+                  )
                 ],
               ),
             ),
