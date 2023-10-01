@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:aqua_trace/screens/cameraPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,11 @@ class drawer extends StatefulWidget {
   @override
   State<drawer> createState() => _drawerState();
 }
+// ----------making instance of Currentuser-----------
+final user = FirebaseAuth.instance.currentUser!;
 
 class _drawerState extends State<drawer> {
-  final user = FirebaseAuth.instance.currentUser!;
+
 
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -26,7 +29,7 @@ class _drawerState extends State<drawer> {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text("Sunandhit"),
+            accountName: Text(currentUserNameGot!),
             accountEmail: Text(user.email!),
             currentAccountPicture: CircleAvatar(
               backgroundImage: AssetImage('assets/sunandhitCharacter.png'),

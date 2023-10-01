@@ -6,6 +6,7 @@ import 'package:aqua_trace/ui/square_tile.dart';
 import 'package:aqua_trace/ui/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:aqua_trace/services/firestore_services.dart';
 
 class register extends StatefulWidget {
   final Function()? onTap;
@@ -15,14 +16,17 @@ class register extends StatefulWidget {
   State<register> createState() => registerState();
 }
 
+//  ----------Text controllers---------
+final emailController = TextEditingController();
+
+final passwordController = TextEditingController();
+
+final confirmpasswordController = TextEditingController();
+
+final userNameController = TextEditingController();
+
+// ------------starting ---------
 class registerState extends State<register> {
-  //  controllers
-  final emailController = TextEditingController();
-
-  final passwordController = TextEditingController();
-
-  final confirmpasswordController = TextEditingController();
-
   void showMessage(String message) {
     showDialog(
       context: context,
@@ -34,7 +38,7 @@ class registerState extends State<register> {
     );
   }
 
-  // sign up
+  // -----sign up-----
   void signUserUp() async {
     showDialog(
       context: context,
@@ -90,14 +94,21 @@ class registerState extends State<register> {
               height: 15,
             ),
 
-            //username
+            //--------------Username:
+            textfield(
+              controller: userNameController,
+              hintText: 'username',
+              obscureText: false,
+            ),
+
+            //-----------------Email:
             textfield(
               controller: emailController,
               hintText: 'Email',
               obscureText: false,
             ),
 
-            //password
+            //-----------------password
             textfield(
                 controller: passwordController,
                 hintText: 'Password',
@@ -106,7 +117,7 @@ class registerState extends State<register> {
             //   height: 10,
             // ),
 
-            //confirm password
+            //------------confirm password
             textfield(
                 controller: confirmpasswordController,
                 hintText: 'Confirm Password',
@@ -115,7 +126,7 @@ class registerState extends State<register> {
               height: 15,
             ),
 
-            // forget password
+            // ----------------forget password
 
             // Padding(
             //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -133,10 +144,13 @@ class registerState extends State<register> {
             //   height: 15,
             // ),
 
-            // sign in
+            //-------signing UP and Adding UserData--------
             button(
               text: "Sign UP ",
-              OnTap: signUserUp,
+              OnTap: () {
+                signUserUp();
+                addUserData();
+              },
             ),
             SizedBox(
               height: 50,
@@ -194,6 +208,7 @@ class registerState extends State<register> {
             SizedBox(
               height: 20,
             ),
+
             // register
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

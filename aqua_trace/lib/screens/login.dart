@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:aqua_trace/screens/cameraPage.dart';
 import 'package:aqua_trace/services/auth_services.dart';
 import 'package:aqua_trace/ui/buttons.dart';
 import 'package:aqua_trace/ui/square_tile.dart';
 import 'package:aqua_trace/ui/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class login extends StatefulWidget {
   final Function()? onTap;
@@ -48,10 +50,12 @@ class _loginState extends State<login> {
         email: emailController.text,
         password: passwordController.text,
       );
-      Navigator.pop(context);
+
+      //  error is coming here when the cameraPage is loading faster than the loading page goesOut.
+       Navigator.pop(context);
+
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-
       showMessage(e.code);
     }
   }

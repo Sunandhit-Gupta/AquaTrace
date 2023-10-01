@@ -50,8 +50,8 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
           
-            SizedBox(height: 40,width: 20,),
-            ElevatedButton.icon(onPressed: (){}, icon: Icon(Icons.save,color: Colors.white,), label: Text("Save"),style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 101, 139, 158)),),
+            const SizedBox(height: 40,width: 20,),
+            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.save,color: Colors.white,), label: const Text("Save"),style: ElevatedButton.styleFrom(primary:const Color.fromARGB(255, 101, 139, 158)),),
           ],
         ),
       ),

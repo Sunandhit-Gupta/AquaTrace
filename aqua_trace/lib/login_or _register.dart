@@ -1,5 +1,5 @@
-import 'package:aqua_trace/login.dart';
-import 'package:aqua_trace/register.dart';
+import 'package:aqua_trace/screens/login.dart';
+import 'package:aqua_trace/screens/register.dart';
 import 'package:flutter/material.dart';
 
 class loginORregister extends StatefulWidget {

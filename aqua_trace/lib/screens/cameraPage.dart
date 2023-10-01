@@ -2,9 +2,11 @@ import 'package:aqua_trace/screens/ProfilePage.dart';
 import 'package:aqua_trace/screens/Tips.dart';
 import 'package:aqua_trace/screens/drawer.dart';
 import 'package:aqua_trace/screens/list.dart';
+import 'package:aqua_trace/services/firestore_services.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:aqua_trace/screens/textfield.dart';
+import 'package:get/get.dart';
 
 class cameraPage extends StatefulWidget {
   cameraPage({super.key});
@@ -12,6 +14,7 @@ class cameraPage extends StatefulWidget {
   State<cameraPage> createState() => _cameraPageState();
 }
 
+String currentUserNameGot = '';
 int myIndex = 2;
 
 List<Widget> widgetList = [
@@ -22,17 +25,34 @@ List<Widget> widgetList = [
   ProfilePage(),
 ];
 
+getUserNameData() async {
+  currentUserNameGot = await getUserName();
+}
+
 class _cameraPageState extends State<cameraPage> {
   @override
+  @override
   Widget build(BuildContext context) {
+    // -----getting userName and then setState is called----------
+
+    getUserNameData().then((value) {
+      try {
+        setState(() {
+          currentUserNameGot;
+        });
+      } catch (e) {
+        print('Page Not Found');
+      }
+    });
+
     return SafeArea(
       child: Scaffold(
         drawer: drawer(),
         appBar: myIndex != 3
             ? AppBar(
                 // ---------------making leading Icon for Logout ( not used )-------------------
-                
-                title: Text("Hello, "),
+
+                title: Text("Hello, " + currentUserNameGot),
                 centerTitle: true,
                 actions: [
                   // -------------------Making button of Avatar--------------
