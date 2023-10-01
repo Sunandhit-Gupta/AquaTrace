@@ -15,11 +15,7 @@ class listState extends State<list> {
   String text = "";
   @override
   Widget build(BuildContext context) {
-    if (changed != 1) {
-      setState(() {
-        changed = 1;
-      });
-    }
+    
     return Consumer<listProvider>(
       builder: (context, listProviderModel, child) => Scaffold(
         body: Column(
@@ -82,6 +78,7 @@ class listState extends State<list> {
                 ],
               ),
             ),
+            SizedBox(height: 20,width: 20,)
           ],
         ),
       ),
