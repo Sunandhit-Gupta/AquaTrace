@@ -14,12 +14,12 @@ class _TextIn extends State<TextWidget> {
   List<String> items = [];
   List<String> listItems = ['apple', 'bananana', 'book'];
   final List<String> list_num = List<String>.generate(10, (i) => '$i');
+   
   var temp = '';
   TextEditingController textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return Consumer<listProvider>(
       builder: (context, listProviderModel, child) => Column(
         children: <Widget>[
@@ -42,8 +42,8 @@ class _TextIn extends State<TextWidget> {
                             return item.contains(textinput.text.toLowerCase());
                           });
                         },
-                        fieldViewBuilder:
-                            (context, controller, focusNode, onEditingComplete) {
+                        fieldViewBuilder: (context, controller, focusNode,
+                            onEditingComplete) {
                           return TextField(
                             controller: controller,
                             focusNode: focusNode,
@@ -73,10 +73,10 @@ class _TextIn extends State<TextWidget> {
                           if (newItem.isNotEmpty) {
                             // setState(
                             //   () {
-                                // items.add(newItem);
-                                listProviderModel.add(newItem);
+                            // items.add(newItem);
+                            listProviderModel.add(newItem);
 
-                                textController.clear();
+                            textController.clear();
                             //   // },
                             // );
                           }
@@ -120,16 +120,14 @@ class _TextIn extends State<TextWidget> {
                       ),
                     ),
                     title: Text(
-                      // '${items[index]}',
-                      listProviderModel.data[index]
-                    ),
+                        // '${items[index]}',
+                        listProviderModel.data[index]),
                     trailing: IconButton(
                         icon: Icon(Icons.delete),
                         onPressed: () {
                           // setState(() {
-                            // items.remove(items[index]);
-                            listProviderModel
-                                .remove(index);
+                          // items.remove(items[index]);
+                          listProviderModel.remove(index);
                           // });
                         }),
                   ),
