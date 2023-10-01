@@ -1,18 +1,13 @@
 import 'package:aqua_trace/ProfilePage.dart';
 import 'package:aqua_trace/Tips.dart';
-import 'package:aqua_trace/calculatorPage.dart';
 import 'package:aqua_trace/drawer.dart';
 import 'package:aqua_trace/list.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:aqua_trace/textfield.dart';
 
 class cameraPage extends StatefulWidget {
-  const cameraPage({super.key});
-
+  cameraPage({super.key});
   @override
   State<cameraPage> createState() => _cameraPageState();
 }
@@ -33,44 +28,48 @@ class _cameraPageState extends State<cameraPage> {
     return SafeArea(
       child: Scaffold(
         drawer: drawer(),
-        appBar: myIndex!=3? AppBar(
-          // ---------------making leading Icon for Logout ( not used )-------------------
-          // leading: IconButton(
-          //     onPressed: () {
-          //       Get.back();
-          //     },
-          //     icon: const Icon(Icons.logout_outlined)),
+        appBar: myIndex != 3
+            ? AppBar(
+                // ---------------making leading Icon for Logout ( not used )-------------------
+                // leading: IconButton(
+                //     onPressed: () {
+                //       Get.back();
+                //     },
+                //     icon: const Icon(Icons.logout_outlined)),
 
-          title: const Text("Hello, " + "Sunandhit"),
-          centerTitle: true,
-          actions: [
-            // -------------------Making button of Avatar--------------
-            FloatingActionButton(
-              backgroundColor: Colors.transparent,
-              onPressed: () {
-                // --------------------------------------Showing Bottom upsliding window----------------------------
-                showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return const Scaffold(
-                        backgroundColor: Color.fromARGB(255, 152, 173, 209),
-                        body: Center(
-                            child: Text(
-                          "Hello",
-                          style: TextStyle(fontSize: 20),
-                        )),
-                      );
-                    });
-              },
+                title: Text("Hello, "),
+                centerTitle: true,
+                actions: [
+                  // -------------------Making button of Avatar--------------
+                  FloatingActionButton(
+                    backgroundColor: Colors.transparent,
+                    onPressed: () {
+                      // --------------------------------------Showing Bottom upsliding window----------------------------
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const Scaffold(
+                              backgroundColor:
+                                  Color.fromARGB(255, 152, 173, 209),
+                              body: Center(
+                                  child: Text(
+                                "Hello",
+                                style: TextStyle(fontSize: 20),
+                              )),
+                            );
+                          });
+                    },
 //  ----------------------------------Making profile Avatar------------------------------------
-              child: const CircleAvatar(
-                backgroundImage: AssetImage('assets/sunandhitCharacter.png'),
-                backgroundColor: Colors.transparent,
-                radius: 25,
-              ),
-            ),
-          ],
-        ):null,
+                    child: const CircleAvatar(
+                      backgroundImage:
+                          AssetImage('assets/sunandhitCharacter.png'),
+                      backgroundColor: Colors.transparent,
+                      radius: 25,
+                    ),
+                  ),
+                ],
+              )
+            : null,
         body: Column(
           children: [
             const SizedBox(
@@ -79,9 +78,8 @@ class _cameraPageState extends State<cameraPage> {
             ),
             Expanded(
               child: Container(
-                
                 color: Colors.transparent,
-            //------------------------------ Giving Screens as input to change with NAVBAR----------------
+                //------------------------------ Giving Screens as input to change with NAVBAR----------------
                 child: IndexedStack(
                   index: myIndex,
                   children: widgetList,
